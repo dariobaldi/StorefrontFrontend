@@ -1,5 +1,5 @@
 <div class="product-container">
-    <img src="{{product.url}}" alt="{{product.name}}" class="product-image">
+    <a href="/product/{{ product.id }}"><img src="{{product.url}}" alt="{{product.name}}" class="product-image"></a>
     <p>{{ product.name }}</p>
     <p>${{ product.price }}</p>
     <input type="number" class="select-input" value="1">
