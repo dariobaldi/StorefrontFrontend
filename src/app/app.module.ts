@@ -9,6 +9,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     ProductItemComponent,
     ProductDetailsComponent,
-    NavBarComponent
+    NavBarComponent,
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
