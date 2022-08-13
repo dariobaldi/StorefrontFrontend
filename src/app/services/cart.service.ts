@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartProduct } from '../models/cart-product';
 import { Product } from '../models/product';
+
+// I implemented the cart service using BehaviorSubject, inspired by the following repository:
+// https://github.com/yshashi/add-to-cart
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   
-  cartProducts: CartProduct[];
+  public cartProducts: CartProduct[] = [];
+  public productsList = new BehaviorSubject<any>([]);
 
-  constructor() {
-    this.cartProducts = [];
-  }
+  constructor() { }
 
-  getCartProducts() {
-    return this.cartProducts;
+  getCartProducts(): Observable<CartProduct[]> {
+    return this.productsList.asObservable();
   }
 
   addToCart(product: Product, quantity: number) {
@@ -24,5 +27,7 @@ export class CartService {
     } else {
       this.cartProducts.push({ ...product, quantity });
     }
+    this.productsList.next(this.cartProducts);
+    console.log(this.cartProducts);
   }
 }

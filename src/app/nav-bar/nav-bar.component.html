@@ -1,5 +1,19 @@
-<div class="header">
-    <h1>MyStore</h1>
-    <a href="/">Products list </a>
-    <a href="/cart/">Cart</a>
-</div>
+<nav class="navbar navbar-expand-lg" style="background: #33B5E5;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="margin: 10px 50px;" routerLink="">MyStore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="">Products list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="cart">Cart<div style="font-size: 10px;" class="badge bg-primary">{{totalCart}}</div></a>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

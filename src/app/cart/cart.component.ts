@@ -9,19 +9,15 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartProducts: CartProduct[] = [{
-    "id": 6,
-    "name": "Shirt",
-    "price": 29.99,
-    "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
-    "description": "Wear it with style!",
-    quantity: 1
-  }];
+
+  cartProducts: CartProduct[] = [];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartProducts = this.cartService.getCartProducts();
+    this.cartService.getCartProducts().subscribe(res => {
+      this.cartProducts = res;
+    });
   }
 
 

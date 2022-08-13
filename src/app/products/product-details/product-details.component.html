@@ -1,15 +1,17 @@
 <div class="detail-container">
-<div class="detail-item">
-    <a href="/product/{{ product.id }}"><img src="{{product.url}}" alt="{{product.name}}"></a>
-</div>
-<div class="detail-item">
-    <h3>{{ product.name }}</h3>
-    <p>${{ product.price }}</p>
-    <p>{{ product.description }}</p>
-    <input type="number" class="select-input" value="1">
-    <br>
-    <button class="btn btn-primary">Add to cart</button>
-    <br>
-    <a href="/" class="select-input">← Back to products list</a>
-</div>
+    <div class="detail-item">
+        <a href="/product/{{ product.id }}"><img src="{{product.url}}" alt="{{product.name}}"></a>
+    </div>
+    <div class="detail-item">
+        <h3>{{ product.name }}</h3>
+        <p>${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <form #form="ngForm" (ngSubmit)="addToCart()">
+            <input type="number" class="select-input" name="quantity" [(ngModel)]="quantity">
+            <br>
+            <button class="btn btn-primary">Add to cart</button>
+        </form>
+        <br>
+        <a href="/" class="select-input">← Back to products list</a>
+    </div>
 </div>

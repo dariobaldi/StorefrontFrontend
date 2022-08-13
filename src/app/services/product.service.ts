@@ -6,11 +6,26 @@ import { Product } from '../models/product';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
-  private products: Product[] = [];
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJpIiwiZmlyc3RfbmFtZSI6Ik1hcmllbGEiLCJsYXN0X25hbWUiOiJEZWwgQmFycmlvIiwiaWF0IjoxNjU4NjQ0NDg1fQ.IDW55pCtF9bNgzBPCkWahAXGm7XhedfJ--3NF7ckNlg';
 
   constructor(private http: HttpClient) {
-    this.getProducts().subscribe(res => this.products = res);
+  }
+
+  importProducts(): Product[] {
+    let products: Product[] = [];
+    this.http.get('../../assets/data.json').subscribe(res => {
+      const products = res as Product[];
+      for (let i = 0; i < products.length; i++) {
+        this.http.post('http://localhost:3333/products', products[i]).subscribe(res => {
+          console.log(res);
+        }), (err: Error) => {
+          console.log(err);
+        }
+      }
+    });
+    return products;
   }
 
   getProducts(): Observable<Product[]> {

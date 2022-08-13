@@ -1,5 +1,12 @@
 <div class="product-container">
-<div class="product-index">
-    <app-product-item *ngFor="let product of products" [product]="product" class="product-container"></app-product-item>
+    <div class="product-index" >
+        <app-product-item *ngFor="let product of products" [product]="product" style="margin:20px;"></app-product-item>
+    </div>
 </div>
-</div>
+
+<!-- Button to import info the database when it is empty -->
+<ng-container *ngIf="!hideButton">
+    <div class="product-container">
+        <button class="btn btn-primary"(click)="importProducts()">Import info to database</button>
+    </div>
+</ng-container>

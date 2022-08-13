@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product.service';
 
@@ -9,12 +9,27 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  hideButton: boolean = false;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.updateInfo();
+  }
+
+  importProducts() {
+    this.products = this.productService.importProducts();
+  }
+
+  updateInfo() {
     this.productService.getProducts().subscribe(res => {
       this.products = res;
+
+      if (this.products.length > 0) {
+        this.hideButton = true;
+      } else{
+        this.hideButton = false;
+      }
     })
   }
 

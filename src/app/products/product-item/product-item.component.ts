@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  quantity: number = 1;
 
   constructor(private cartService: CartService) {
     this.product={
@@ -24,7 +25,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   addToCart() {
-    this.cartService.addToCart(this.product, 1);
+    this.cartService.addToCart(this.product, this.quantity);
   }
 
 }

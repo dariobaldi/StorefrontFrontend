@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { PaymentFormComponent } from './cart/payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     ProductDetailsComponent,
     NavBarComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
