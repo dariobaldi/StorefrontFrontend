@@ -1,8 +1,16 @@
 <div class="cart-container">
     <div class="cart-item-details">
-        <app-cart-item *ngFor="let cartProduct of cartProducts" [cartProduct]="cartProduct"></app-cart-item>
+        <div *ngIf="cartProducts.length;then products else noProducts"></div>
+        <ng-template #products>
+            <app-cart-item *ngFor="let cartProduct of cartProducts" [cartProduct]="cartProduct"></app-cart-item>
+            <h3>Total: ${{ total }}</h3>
+        </ng-template>
+        <ng-template #noProducts>
+            <h3 class="empty-cart-message">No products currently in your cart</h3>
+            <a routerLink="" class="select-input">← Back to products list</a>
+        </ng-template>
     </div>
-    <div class="cart-item-details">
-        TODO Form
+    <div style="width: 300px;margin-left: 40px;">
+        <app-payment-form></app-payment-form>
     </div>
 </div>

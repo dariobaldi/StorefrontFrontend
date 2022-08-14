@@ -1,10 +1,11 @@
 <div class="cart-item">
     <div class="cart-item-details">
-        <a href="/product/{{ cartProduct.id }}"><img src="{{cartProduct.url}}" alt="{{cartProduct.name}}"></a>
+        <a routerLink="/product/{{ cartProduct.id }}"><img src="{{cartProduct.url}}" alt="{{cartProduct.name}}"></a>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(cartProduct)">Delete</button>
     </div>
     <div class="cart-item-details ">
-        <p>{{ cartProduct.name }}</p>
+        <h3>{{ cartProduct.name }}</h3>
         <p>${{ cartProduct.price }}</p>
-        <p>{{cartProduct.quantity}}</p>
+        <input type="number" min="1" [ngModel]="cartProduct.quantity" (ngModelChange)="updateQuantity($event)">
     </div>
 </div>

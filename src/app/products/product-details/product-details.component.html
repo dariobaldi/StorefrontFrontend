@@ -1,6 +1,6 @@
 <div class="detail-container">
     <div class="detail-item">
-        <a href="/product/{{ product.id }}"><img src="{{product.url}}" alt="{{product.name}}"></a>
+        <a routerLink="product/{{ product.id }}"><img src="{{product.url}}" alt="{{product.name}}"></a>
     </div>
     <div class="detail-item">
         <h3>{{ product.name }}</h3>
@@ -12,6 +12,6 @@
             <button class="btn btn-primary">Add to cart</button>
         </form>
         <br>
-        <a href="/" class="select-input">← Back to products list</a>
+        <a routerLink="" class="select-input">← Back to products list</a>
     </div>
 </div>

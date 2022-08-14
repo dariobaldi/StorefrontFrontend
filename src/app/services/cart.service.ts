@@ -23,11 +23,27 @@ export class CartService {
   addToCart(product: Product, quantity: number) {
     const cartProduct = this.cartProducts.find(cp => cp.id === product.id);
     if (cartProduct) {
-      cartProduct.quantity += quantity;
+      alert('This product is already in your cart');
     } else {
       this.cartProducts.push({ ...product, quantity });
+      alert('Product added to your cart');
     }
     this.productsList.next(this.cartProducts);
-    console.log(this.cartProducts);
+  }
+
+  updateQuantity(product: Product, quantity: number){
+    const cartProduct = this.cartProducts.find(cp => cp.id === product.id);
+    if (cartProduct) {
+      cartProduct.quantity = quantity;
+    }
+    this.productsList.next(this.cartProducts);
+  }
+
+  deleteProduct(product: CartProduct): void {
+    const index = this.cartProducts.findIndex(cp => cp.id === product.id);
+    if (index !== -1) {
+      this.cartProducts.splice(index, 1);
+    }
+    this.productsList.next(this.cartProducts);
   }
 }
