@@ -5,7 +5,7 @@ import { AlertService } from './alert.service';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class OrderService {
   orderInfo: OrderInfo = {} as OrderInfo;

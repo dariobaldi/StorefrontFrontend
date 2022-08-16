@@ -5,7 +5,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css'],
+  styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
@@ -18,7 +18,7 @@ export class ProductItemComponent implements OnInit {
       price: 100,
       url: 'https://via.placeholder.com/150',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.'
     };
   }
 

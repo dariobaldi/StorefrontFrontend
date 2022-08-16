@@ -4,7 +4,7 @@
         <input type="text" name="fullName" class="form-control" required minlength="3" maxlength="30"
             placeholder="(Minimum 3 characters)" [(ngModel)]="orderInfo.clientName" #fullName="ngModel">
         <div *ngIf="(fullName.hasError('required')|| fullName.hasError('minlength') || fullName.hasError('maxlength')) && fullName.dirty"
-            class="form-text" style="color: red;">Name is required (only names between 3 and 30 characters are accepted.
+            class="form-text" style="color: red;">Name is required (only names between 3 and 30 characters are accepted).
         </div>
     </div>
     <div class="mb-3">
@@ -13,7 +13,7 @@
             placeholder="(Minimum 6 characters)" [(ngModel)]="orderInfo.address" #deliveryaddress="ngModel">
         <div *ngIf="(deliveryaddress.hasError('required')|| deliveryaddress.hasError('minlength') || deliveryaddress.hasError('maxlength')) && deliveryaddress.dirty"
             class="form-text" style="color: red;">
-            <Address></Address>An address is required (maximum 40 characters).
+            An address is required (maximum 40 characters).
         </div>
     </div>
     <div class="mb-3">
@@ -23,7 +23,7 @@
         <div class="form-text">We'll never share your payment details with anyone else.</div>
         <div *ngIf="(clientCard.hasError('required')|| clientCard.hasError('minlength') || clientCard.hasError('maxlength')) && clientCard.dirty"
             class="form-text" style="color: red;">
-            <Address></Address> Please enter your card number
+            Please enter a valid number
         </div>
     </div>
     <button type="submit" [disabled]="form.invalid" class="btn btn-primary float-end">Purchase</button>

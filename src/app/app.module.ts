@@ -27,16 +27,16 @@ import { AlertComponent } from './alert/alert.component';
     CartItemComponent,
     PaymentFormComponent,
     PurchaseConfirmationComponent,
-    AlertComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

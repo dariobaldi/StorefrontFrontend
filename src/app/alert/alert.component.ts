@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../services/alert.service';
 
 // I implemented this alert component using the following instructions:
@@ -7,7 +7,7 @@ import { AlertService } from '../services/alert.service';
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css'],
+  styleUrls: ['./alert.component.css']
 })
 export class AlertComponent implements OnInit {
   constructor(public alertService: AlertService) {}

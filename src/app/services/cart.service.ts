@@ -8,7 +8,7 @@ import { AlertService } from './alert.service';
 // https://github.com/yshashi/add-to-cart
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CartService {
   public cartProducts: CartProduct[] = [];

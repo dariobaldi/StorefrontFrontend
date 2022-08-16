@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
   token =
@@ -12,8 +12,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  importProducts(): Product[] {
-    let products: Product[] = [];
+  importProducts(): void {
     this.http.get('../../assets/data.json').subscribe((res) => {
       const products = res as Product[];
       for (let i = 0; i < products.length; i++) {
@@ -26,8 +25,8 @@ export class ProductService {
             console.log(err);
           };
       }
+      window.location.reload();
     });
-    return products;
   }
 
   getProducts(): Observable<Product[]> {

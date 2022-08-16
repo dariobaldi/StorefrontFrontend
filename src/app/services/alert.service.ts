@@ -2,7 +2,7 @@ import { Injectable, TemplateRef } from '@angular/core';
 import { Alert } from '../models/alert';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AlertService {
   alerts: Alert[] = [];

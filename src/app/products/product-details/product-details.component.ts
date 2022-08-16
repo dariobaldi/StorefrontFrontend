@@ -7,7 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css'],
+  styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
   id: number = 0;

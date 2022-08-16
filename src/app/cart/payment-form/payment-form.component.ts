@@ -5,7 +5,7 @@ import { OrderService } from 'src/app/services/order.service';
 @Component({
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
-  styleUrls: ['./payment-form.component.css'],
+  styleUrls: ['./payment-form.component.css']
 })
 export class PaymentFormComponent implements OnInit {
   orderInfo: OrderInfo = {} as OrderInfo;
