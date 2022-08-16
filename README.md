@@ -1,27 +1,11 @@
 # StorefrontFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+This is the front end for a basic e-commerce page, created for the Full Stack JavaScript Developer on Udacity.
 
-## Development server
+## Setting-up
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Once you have setted-up the backend server and it's running on the port 3333, you can install all dependencies with `npm install`.
 
-## Code scaffolding
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. It's important to serve it on port 4200 since the backend CORS configuration accepts connections from that address.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Once connected, you'll find a button on the main page to import all the products to the database (the app imports the template products from the JSON file on the assets folder).
