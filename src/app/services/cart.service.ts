@@ -2,37 +2,44 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CartProduct } from '../models/cart-product';
 import { Product } from '../models/product';
+import { AlertService } from './alert.service';
 
 // I implemented the cart service using BehaviorSubject, inspired by the following repository:
 // https://github.com/yshashi/add-to-cart
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-  
   public cartProducts: CartProduct[] = [];
   public productsList = new BehaviorSubject<any>([]);
+  total: number = 0;
 
-  constructor() { }
+  constructor(public alertService: AlertService) {}
 
   getCartProducts(): Observable<CartProduct[]> {
     return this.productsList.asObservable();
   }
 
   addToCart(product: Product, quantity: number) {
-    const cartProduct = this.cartProducts.find(cp => cp.id === product.id);
+    const cartProduct = this.cartProducts.find((cp) => cp.id === product.id);
     if (cartProduct) {
-      alert('This product is already in your cart');
+      this.alertService.show(
+        product.name + ' is already in your cart',
+        'bg-warning text-white'
+      );
     } else {
       this.cartProducts.push({ ...product, quantity });
-      alert('Product added to your cart');
+      this.alertService.show(
+        product.name + ' was added to your cart',
+        'bg-success text-white'
+      );
     }
     this.productsList.next(this.cartProducts);
   }
 
-  updateQuantity(product: Product, quantity: number){
-    const cartProduct = this.cartProducts.find(cp => cp.id === product.id);
+  updateQuantity(product: Product, quantity: number) {
+    const cartProduct = this.cartProducts.find((cp) => cp.id === product.id);
     if (cartProduct) {
       cartProduct.quantity = quantity;
     }
@@ -40,10 +47,24 @@ export class CartService {
   }
 
   deleteProduct(product: CartProduct): void {
-    const index = this.cartProducts.findIndex(cp => cp.id === product.id);
+    const index = this.cartProducts.findIndex((cp) => cp.id === product.id);
     if (index !== -1) {
       this.cartProducts.splice(index, 1);
     }
+    this.productsList.next(this.cartProducts);
+  }
+
+  calculateTotal(): number {
+    this.total = 0;
+    this.cartProducts.forEach((product) => {
+      this.total += product.price * product.quantity;
+    });
+    this.total = Math.round(this.total * 100) / 100;
+    return this.total;
+  }
+
+  clearCart(): void {
+    this.cartProducts = [];
     this.productsList.next(this.cartProducts);
   }
 }

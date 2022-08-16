@@ -5,7 +5,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrls: ['../cart.component.css']
+  styleUrls: ['../cart.component.css'],
 })
 export class CartItemComponent implements OnInit {
   @Input() cartProduct: CartProduct;
@@ -16,13 +16,13 @@ export class CartItemComponent implements OnInit {
       name: 'Product 1',
       price: 100,
       url: 'https://via.placeholder.com/150',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
-      quantity: 1
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
+      quantity: 1,
     };
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   updateQuantity(quantity: number): void {
     this.cartService.updateQuantity(this.cartProduct, quantity);
@@ -31,5 +31,4 @@ export class CartItemComponent implements OnInit {
   deleteProduct(product: CartProduct): void {
     this.cartService.deleteProduct(product);
   }
-
 }

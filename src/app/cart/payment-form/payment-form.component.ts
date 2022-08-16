@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderInfo } from 'src/app/models/order-info';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
-  styleUrls: ['./payment-form.component.css']
+  styleUrls: ['./payment-form.component.css'],
 })
 export class PaymentFormComponent implements OnInit {
-  public clientName: string = '';
-  public address: string = '';
-  public cardNumber: string = '';
+  orderInfo: OrderInfo = {} as OrderInfo;
 
-  constructor() { }
+  constructor(private orderService: OrderService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submitForm(): void {
-    console.log('Form submitted');
+    this.orderService.createOrder(this.orderInfo);
   }
-
 }

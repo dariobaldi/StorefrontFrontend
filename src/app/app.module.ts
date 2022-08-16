@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { PaymentFormComponent } from './cart/payment-form/payment-form.component';
 import { PurchaseConfirmationComponent } from './cart/purchase-confirmation/purchase-confirmation.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +26,17 @@ import { PurchaseConfirmationComponent } from './cart/purchase-confirmation/purc
     CartComponent,
     CartItemComponent,
     PaymentFormComponent,
-    PurchaseConfirmationComponent
+    PurchaseConfirmationComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

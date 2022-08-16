@@ -1,11 +1,12 @@
-<div class="card" style="width: 18rem;">
-    <a routerLink="/product/{{ product.id }}"><img src="{{product.url}}" class="card-img-top" alt="{{product.name}}"></a>
+<div class="card" style="width: 18rem">
+    <a routerLink="/product/{{ product.id }}"><img src="{{ product.url }}" class="card-img-top"
+            alt="{{ product.name }}" /></a>
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">${{ product.price }}</p>
         <form #form="ngForm" (ngSubmit)="addToCart()">
-            <input type="number" class="select-input" name="quantity" [(ngModel)]="quantity">
-            <br>
+            <input type="number" class="select-input" name="quantity" [(ngModel)]="quantity" />
+            <br />
             <button class="btn btn-primary" type="submit">Add to cart</button>
         </form>
     </div>

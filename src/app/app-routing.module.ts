@@ -3,16 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { PurchaseConfirmationComponent } from './cart/purchase-confirmation/purchase-confirmation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
-  { path: 'product/:id', component: ProductDetailsComponent},
-  { path: 'cart', component: CartComponent }
+  { path: 'product/:id', component: ProductDetailsComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'order-success', component: PurchaseConfirmationComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

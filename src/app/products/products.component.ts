@@ -5,13 +5,13 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  hideButton: boolean = false;
+  hideButton: boolean = true;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.updateInfo();
@@ -22,15 +22,14 @@ export class ProductsComponent implements OnInit {
   }
 
   updateInfo() {
-    this.productService.getProducts().subscribe(res => {
+    this.productService.getProducts().subscribe((res) => {
       this.products = res;
 
       if (this.products.length > 0) {
         this.hideButton = true;
-      } else{
+      } else {
         this.hideButton = false;
       }
-    })
+    });
   }
-
 }

@@ -7,31 +7,29 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
   id: number = 0;
-  product: Product = {id: 0,name: '',description: '',price: 0,url: ''};
+  product: Product = { id: 0, name: '', description: '', price: 0, url: '' };
   public quantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService
-    ) {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];});
-      this.productService.getProduct(this.id).subscribe(res => {
-        this.product = res;
-      });
-   }
-
-  ngOnInit(): void {
+  ) {
+    this.route.params.subscribe((params) => {
+      this.id = params['id'];
+    });
+    this.productService.getProduct(this.id).subscribe((res) => {
+      this.product = res;
+    });
   }
+
+  ngOnInit(): void {}
 
   addToCart() {
     this.cartService.addToCart(this.product, this.quantity);
   }
-  
-
 }
