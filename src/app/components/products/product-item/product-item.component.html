@@ -5,7 +5,7 @@
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">${{ product.price }}</p>
         <form #form="ngForm" (ngSubmit)="addToCart()">
-            <input type="number" class="select-input" name="quantity" [(ngModel)]="quantity" />
+            <input type="number" class="select-input" name="quantity" min="1" [(ngModel)]="quantity" />
             <br />
             <button class="btn btn-primary" type="submit">Add to cart</button>
         </form>

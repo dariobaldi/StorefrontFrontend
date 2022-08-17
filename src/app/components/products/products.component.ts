@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
+import { CartProduct } from '../../models/cart-product';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +14,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   hideButton: boolean = true;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService, private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
     this.updateInfo();
@@ -32,5 +34,9 @@ export class ProductsComponent implements OnInit {
         this.hideButton = false;
       }
     });
+  }
+
+  addToCart(product: CartProduct): void {
+    this.cartService.addToCart(product);
   }
 }

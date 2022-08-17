@@ -8,7 +8,7 @@ import { AlertService } from './alert.service';
 // https://github.com/yshashi/add-to-cart
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   public cartProducts: CartProduct[] = [];
@@ -21,7 +21,14 @@ export class CartService {
     return this.productsList.asObservable();
   }
 
-  addToCart(product: Product, quantity: number) {
+  addToCart(product: CartProduct): void {
+    if (product.quantity < 1) {
+      this.alertService.show(
+        'Quantity must be greater than 0',
+        'bg-warning text-white'
+      );
+      return;
+    }
     const cartProduct = this.cartProducts.find((cp) => cp.id === product.id);
     if (cartProduct) {
       this.alertService.show(
@@ -29,7 +36,7 @@ export class CartService {
         'bg-warning text-white'
       );
     } else {
-      this.cartProducts.push({ ...product, quantity });
+      this.cartProducts.push(product);
       this.alertService.show(
         product.name + ' was added to your cart',
         'bg-success text-white'
@@ -38,7 +45,14 @@ export class CartService {
     this.productsList.next(this.cartProducts);
   }
 
-  updateQuantity(product: Product, quantity: number) {
+  updateQuantity(product: Product, quantity: number): void {
+    if (quantity < 1) {
+      this.alertService.show(
+        'Quantity must be greater than 0',
+        'bg-danger text-white'
+      );
+      return;
+    }
     const cartProduct = this.cartProducts.find((cp) => cp.id === product.id);
     if (cartProduct) {
       cartProduct.quantity = quantity;

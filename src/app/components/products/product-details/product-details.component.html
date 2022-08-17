@@ -7,7 +7,7 @@
         <p>${{ product.price }}</p>
         <p>{{ product.description }}</p>
         <form #form="ngForm" (ngSubmit)="addToCart()">
-            <input type="number" class="select-input" name="quantity" [(ngModel)]="quantity">
+            <input type="number" class="select-input" name="quantity" min="1" [(ngModel)]="quantity">
             <br>
             <button class="btn btn-primary">Add to cart</button>
         </form>

@@ -30,6 +30,6 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   addToCart() {
-    this.cartService.addToCart(this.product, this.quantity);
+    this.cartService.addToCart({...this.product, quantity: this.quantity});
   }
 }
